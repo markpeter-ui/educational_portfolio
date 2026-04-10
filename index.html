@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Mark Peter Sapin | Educational Portfolio</title>
+  <!-- Google Fonts & simple reset -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #fbfbf9;
+      font-family: 'Inter', sans-serif;
+      color: #1e2a2e;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    /* custom container */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* typography */
+    h1, h2, h3, .logo {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+
+    h1 {
+      font-size: 3.8rem;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      color: #1e3a3a;
+    }
+
+    h2 {
+      font-size: 2.2rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+      display: inline-block;
+    }
+    h2:after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: #c17b4c;
+      border-radius: 4px;
+    }
+
+    .section {
+      padding: 80px 0;
+      border-bottom: 1px solid #e9ecef;
+    }
+    .section:last-child {
+      border-bottom: none;
+    }
+
+    /* header / nav */
+    header {
+      background: rgba(255, 253, 245, 0.96);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.02);
+      border-bottom: 1px solid #f0e7db;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      flex-wrap: wrap;
+    }
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: #bc6c25;
+      letter-spacing: -0.5px;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #2d3e40;
+      transition: 0.2s;
+      font-size: 1rem;
+    }
+    .nav-links a:hover {
+      color: #bc6c25;
+    }
+
+    /* hero */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      padding: 40px 0 20px;
+    }
+    .hero-content {
+      flex: 1.2;
+    }
+    .hero-badge {
+      background: #e9e0d3;
+      display: inline-block;
+      padding: 6px 16px;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #8b5a2b;
+      margin-bottom: 1.2rem;
+      letter-spacing: 0.3px;
+    }
+    .hero-content p {
+      font-size: 1.2rem;
+      color: #3f5e5c;
+      margin: 1rem 0 1.8rem;
+      max-width: 90%;
+    }
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-block;
+      padding: 12px 28px;
+      border-radius: 40px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .btn-primary {
+      background: #bc6c25;
+      color: white;
+      box-shadow: 0 2px 8px rgba(188,108,37,0.2);
+    }
+    .btn-primary:hover {
+      background: #9b551d;
+      transform: translateY(-2px);
+    }
+    .btn-outline {
+      border: 1.5px solid #bc6c25;
+      color: #bc6c25;
+      background: transparent;
+    }
+    .btn-outline:hover {
+      background: #bc6c2510;
+      transform: translateY(-2px);
+    }
+    .hero-image {
+      flex: 0.8;
+      text-align: center;
+    }
+    .hero-image img {
+      width: 100%;
+      max-width: 320px;
+      border-radius: 40% 60% 30% 70% / 50% 40% 60% 50%;
+      object-fit: cover;
+      box-shadow: 0 25px 40px -12px rgba(0,0,0,0.2);
+      border: 4px solid #fff7ef;
+    }
+
+    /* cards grid */
+    .grid-2, .grid-3 {
+      display: grid;
+      gap: 2rem;
+    }
+    .grid-2 {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+    .grid-3 {
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+    .card {
+      background: white;
+      border-radius: 28px;
+      padding: 1.8rem;
+      transition: all 0.25s;
+      box-shadow: 0 12px 28px -8px rgba(0,0,0,0.05);
+      border: 1px solid #f0e2d4;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 22px 35px -12px rgba(0,0,0,0.1);
+      border-color: #e2cfbc;
+    }
+    .card-icon {
+      font-size: 2.4rem;
+      color: #bc6c25;
+      margin-bottom: 1.2rem;
+    }
+    .card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+      font-family: 'Playfair Display', serif;
+    }
+    .card p, .card li {
+      color: #4b5e5c;
+      font-size: 0.95rem;
+    }
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 1rem;
+    }
+    .skill-tags span {
+      background: #f7f2ea;
+      padding: 4px 14px;
+      border-radius: 40px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: #8b5a2b;
+    }
+
+    /* experience & education timeline style */
+    .timeline-item {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      align-items: baseline;
+      flex-wrap: wrap;
+    }
+    .timeline-year {
+      min-width: 100px;
+      font-weight: 700;
+      color: #bc6c25;
+      font-size: 1.1rem;
+    }
+    .timeline-desc {
+      flex: 1;
+    }
+    .timeline-desc h4 {
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+    .timeline-desc p {
+      color: #4e6b66;
+    }
+
+    /* publication & project list */
+    .publication-list {
+      list-style: none;
+    }
+    .publication-list li {
+      margin-bottom: 1rem;
+      padding-bottom: 0.8rem;
+      border-bottom: 1px dashed #e9dbcf;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .pub-title {
+      font-weight: 700;
+      width: 100%;
+      color: #1e3a3a;
+    }
+    .pub-journal {
+      font-style: italic;
+      color: #8b6b4d;
+      font-size: 0.85rem;
+    }
+
+    /* contact */
+    .contact-flex {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: space-between;
+      background: #fefaf5;
+      border-radius: 2rem;
+      padding: 2rem;
+      margin-top: 1rem;
+    }
+    .contact-info {
+      flex: 1;
+    }
+    .contact-info i {
+      width: 32px;
+      color: #bc6c25;
+      font-size: 1.2rem;
+    }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.2rem;
+    }
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .social-links a {
+      background: white;
+      width: 40px;
+      height: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      color: #bc6c25;
+      font-size: 1.2rem;
+      transition: 0.2s;
+      border: 1px solid #e6d9ce;
+    }
+    .social-links a:hover {
+      background: #bc6c25;
+      color: white;
+      transform: scale(1.05);
+    }
+    .contact-form {
+      flex: 1.2;
+    }
+    .form-group {
+      margin-bottom: 1rem;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border-radius: 32px;
+      border: 1px solid #e2cfbc;
+      background: white;
+      font-family: 'Inter', sans-serif;
+      outline: none;
+      transition: 0.2s;
+    }
+    textarea {
+      border-radius: 24px;
+      resize: vertical;
+    }
+    input:focus, textarea:focus {
+      border-color: #bc6c25;
+      box-shadow: 0 0 0 2px #f1dbc8;
+    }
+    button[type="submit"] {
+      background: #bc6c25;
+      border: none;
+      padding: 12px 28px;
+      border-radius: 40px;
+      font-weight: 600;
+      color: white;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    button[type="submit"]:hover {
+      background: #9b551d;
+    }
+
+    footer {
+      background: #f4ede5;
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.85rem;
+      color: #6b4c3b;
+    }
+
+    @media (max-width: 780px) {
+      .container {
+        padding: 0 24px;
+      }
+      h1 {
+        font-size: 2.6rem;
+      }
+      .navbar {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .hero-content p {
+        max-width: 100%;
+      }
+      .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+      }
+      .btn-group {
+        justify-content: center;
+      }
+      h2:after {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      h2 {
+        text-align: center;
+        display: block;
+      }
+      .contact-flex {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <div class="navbar">
+      <div class="logo">E. Rivera</div>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- Hero section -->
+  <div class="container">
+    <div class="hero">
+      <div class="hero-content">
+        <div class="hero-badge"><i class="fas fa-chalkboard-teacher"></i> educator & curriculum designer</div>
+        <h1>Mark Peter Sapin, PhD<br>Education & Learning Sciences</h1>
+        <p>Designing inclusive, evidence-based learning experiences. Bridging pedagogy and technology to empower learners worldwide.</p>
+        <div class="btn-group">
+          <a href="#contact" class="btn btn-primary">Let's collaborate</a>
+          <a href="#projects" class="btn btn-outline">View portfolio</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="https://placecats.com/400/400?random=1" alt="Mark Peter portrait" onerror="this.src='https://ui-avatars.com/api/?background=bc6c25&color=fff&name=Elena+R&size=120'">
+      </div>
+    </div>
+  </div>
+
+  <!-- About + philosophy -->
+  <section id="about" class="section">
+    <div class="container">
+      <h2>Educational philosophy</h2>
+      <div class="grid-2" style="margin-top: 2rem;">
+        <div class="card">
+          <div class="card-icon"><i class="fas fa-seedling"></i></div>
+          <h3>Constructivist approach</h3>
+          <p>I believe learning is an active, contextualized process. My methods focus on inquiry, real-world problem solving, and reflective practice — building knowledge collaboratively.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon"><i class="fas fa-universal-access"></i></div>
+          <h3>Inclusive by design</h3>
+          <p>Universal Design for Learning (UDL) guides every course and resource I create. Accessibility, multiple means of engagement, and representation are non-negotiable.</p>
+        </div>
+      </div>
+      <div style="margin-top: 2rem; background: #fef9f0; border-radius: 28px; padding: 2rem;">
+        <p style="font-size: 1.1rem; font-weight: 500; max-width: 80%; margin: auto; text-align: center; color: #3b5e55;"><i class="fas fa-quote-left" style="color:#bc6c25; margin-right: 8px;"></i> Education is not the filling of a pail, but the lighting of a fire. I design for curiosity, agency, and lasting impact.<i class="fas fa-quote-right" style="color:#bc6c25; margin-left: 8px;"></i></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience & Education (timeline) -->
+  <section id="experience" class="section">
+    <div class="container">
+      <h2>Academic journey & leadership</h2>
+      <div style="margin-top: 2rem;">
+        <div class="timeline-item">
+          <div class="timeline-year">2021 – present</div>
+          <div class="timeline-desc"><h4>Assistant Professor, Learning Sciences</h4><p>Stanford Graduate School of Education — Lead graduate seminars on digital pedagogy, design-based research, and equity in STEM education.</p></div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2018 – 2021</div>
+          <div class="timeline-desc"><h4>Curriculum Innovation Fellow</h4><p>MIT Teaching + Learning Lab — Developed blended learning modules for large STEM courses, increased student engagement by 34%.</p></div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2014 – 2018</div>
+          <div class="timeline-desc"><h4>PhD in Educational Psychology</h4><p>University of Michigan — Dissertation: "Scaffolding metacognition in online collaborative environments". Awarded outstanding dissertation award.</p></div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2010 – 2014</div>
+          <div class="timeline-desc"><h4>B.A. in English & Secondary Education</h4><p>Brown University, magna cum laude. Certified K-12 teacher.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Research & publications -->
+  <section id="research" class="section">
+    <div class="container">
+      <h2>Selected publications & talks</h2>
+      <div class="grid-2" style="margin-top: 2rem;">
+        <div class="card">
+          <div class="card-icon"><i class="fas fa-book-open"></i></div>
+          <h3>Recent articles</h3>
+          <ul class="publication-list" style="list-style: none; margin-top: 1rem;">
+            <li><span class="pub-title">"Culturally sustaining feedback in asynchronous discussions"</span><span class="pub-journal"> Journal of Online Learning Research, 2024</span></li>
+            <li><span class="pub-title">"AI literacy for teachers: A participatory design study"</span><span class="pub-journal"> Computers & Education, 2023</span></li>
+            <li><span class="pub-title">"Equity-oriented maker pedagogies"</span><span class="pub-journal"> Harvard Educational Review, 2022</span></li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-icon"><i class="fas fa-chalkboard"></i></div>
+          <h3>Keynotes & workshops</h3>
+          <div class="skill-tags" style="margin-top: 1rem; flex-direction: column; align-items: flex-start; gap: 10px;">
+            <span><i class="far fa-calendar-alt"></i> AERA 2025 – "Designing for learner agency"</span>
+            <span><i class="far fa-calendar-alt"></i> ISTE Live 2024 – "UDL + AI: inclusive futures"</span>
+            <span><i class="far fa-calendar-alt"></i> SXSW EDU 2023 – "Critical digital pedagogies"</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured projects / portfolio pieces -->
+  <section id="projects" class="section">
+    <div class="container">
+      <h2>Impactful projects</h2>
+      <div class="grid-3" style="margin-top: 2rem;">
+        <div class="card">
+          <div class="card-icon"><i class="fas fa-globe-americas"></i></div>
+          <h3>Global Learning Exchange</h3>
+          <p>Open educational platform connecting 3,000+ teachers across 12 countries. Co-designed professional development modules on culturally responsive teaching.</p>
+          <div class="skill-tags"><span>OERS</span><span>collaboration</span><span>UNESCO</span></div>
+        </div>
+        <div class="card">
+          <div class="card-icon"><i class="fas fa-laptop-code"></i></div>
+          <h3>EduCode Academy</h3>
+          <p>Interactive coding curriculum for middle schoolers, using game-based learning and peer assessment. Pilot increased CS interest among girls by 42%.</p>
+          <div class="skill-tags"><span>JavaScript</span><span>pedagogy</span><span>design sprints</span></div>
+        </div>
+        <div class="card">
+          <div class="card-icon"><i class="fas fa-chart-line"></i></div>
+          <h3>Assessment Reimagined</h3>
+          <p>Portfolio-based assessment framework adopted by 5 school districts. Focuses on competency mastery, student voice, and reflective journals.</p>
+          <div class="skill-tags"><span>rubrics</span><span>teacher PD</span><span>action research</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- teaching & service -->
+  <section class="section">
+    <div class="container">
+      <h2>Teaching & service</h2>
+      <div class="grid-2" style="margin-top: 2rem;">
+        <div class="card">
+          <div class="card-icon"><i class="fas fa-users"></i></div>
+          <h3>Courses I teach</h3>
+          <ul style="margin-left: 1.2rem; color:#4b5e5c; margin-top: 0.5rem;">
+            <li>EDUC 220: Foundations of Learning Sciences</li>
+            <li>EDUC 315: Digital Media & Youth Culture</li>
+            <li>EDUC 408: Qualitative Research Methods</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-icon"><i class="fas fa-hand-sparkles"></i></div>
+          <h3>Committees & mentorship</h3>
+          <p>Editorial board, "Journal of Educational Change". Faculty advisor for the Equity in EdTech student group. Mentor for 6 doctoral candidates.</p>
+          <div class="skill-tags"><span>DEI committee</span><span>Grant reviewer</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- contact form & info -->
+  <section id="contact" class="section">
+    <div class="container">
+      <h2>Let's connect</h2>
+      <div class="contact-flex">
+        <div class="contact-info">
+          <div class="contact-item"><i class="fas fa-envelope"></i> <span>elena.rivera@eduportfolio.org</span></div>
+          <div class="contact-item"><i class="fas fa-map-marker-alt"></i> <span>Stanford, CA / Virtual collaborations</span></div>
+          <div class="contact-item"><i class="fas fa-calendar-check"></i> <span>Office hours by appointment</span></div>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-researchgate"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+          </div>
+          <p style="margin-top: 1.5rem; font-size: 0.85rem;">I welcome speaking invitations, research collaborations, and innovative curriculum partnerships.</p>
+        </div>
+        <div class="contact-form">
+          <form id="demo-contact" action="#" method="post">
+            <div class="form-group"><input type="text" placeholder="Full name" required></div>
+            <div class="form-group"><input type="email" placeholder="Email address" required></div>
+            <div class="form-group"><textarea rows="3" placeholder="Tell me about your project or inquiry..."></textarea></div>
+            <button type="submit">Send message <i class="fas fa-paper-plane"></i></button>
+            <p id="form-feedback" style="margin-top: 12px; font-size: 0.8rem; color: #9b551d;"></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <p>© 2025 Mark Peter Sapin – Educational Portfolio. Designed with intention & accessibility.</p>
+    <p style="margin-top: 0.5rem;"><i class="fas fa-creative-commons"></i> All resources and materials shared under CC BY-NC 4.0</p>
+  </div>
+</footer>
+
+<script>
+  // subtle interactive demo: form feedback (prevents actual submit, just demo realism)
+  const form = document.getElementById('demo-contact');
+  if(form) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const feedback = document.getElementById('form-feedback');
+      feedback.innerHTML = '<i class="fas fa-check-circle"></i> Thank you! Dr. Rivera will reply within 2-3 business days.';
+      feedback.style.color = '#2c6e49';
+      form.reset();
+      setTimeout(() => {
+        feedback.innerHTML = '';
+      }, 5000);
+    });
+  }
+
+  // smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if(href === "#" || href === "") return;
+      const target = document.querySelector(href);
+      if(target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
+</body>
+</html>
